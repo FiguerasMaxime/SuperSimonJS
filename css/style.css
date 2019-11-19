@@ -1,6 +1,75 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+
+h1 {
+   display: block;
+   text-align: center;
+   padding-top: 5vh;
+}
+
+.infos {
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#overlay {
+    width: 40vw;
+    height: 40vh;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    opacity: .8;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    z-index: 10;
+    color: #ffffff;
+    display: none;
+}
+
+#overlay h2 {
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+
+#overlay p {
+    padding: 50px;
+}
+
+.quit {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.quit img {
+    width: 100%;
+    height: 100%;
+}
+
+.game {
+    z-index: 1;
 }
 
 .mainContainer {
@@ -11,38 +80,53 @@
 
 .button {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    transform: translate(-50%, -50%);
     border: 3px solid #000;
+    transition: all .3s ease;
 }
 
 .red {
     top: 30vh;
     left: 50vw;
     background-color: red;
+    transform: translate(-50%, -50%);
 }
 
 .blue {
     top: 50vh;
     left: 30vw;
     background-color: blue;
+    transform: translate(-50%, -50%);
 }
 
 .green {
     top: 50vh;
     left: 70vw;
     background-color: green;
+    transform: translate(-50%, -50%);
 }
 
 .yellow {
     top: 70vh;
     left: 50vw;
     background-color: yellow;
+    transform: translate(-50%, -50%);
 }
 
 .button:hover{
     cursor: pointer;
 
+}
+
+#play {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
 }
