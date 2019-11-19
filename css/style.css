@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    background: lightblue;
+}
+
+.button {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 3px solid #000;
+}
+
+.red {
+    top: 30vh;
+    left: 50vw;
+    background-color: red;
+}
+
+.blue {
+    top: 50vh;
+    left: 30vw;
+    background-color: blue;
+}
+
+.green {
+    top: 50vh;
+    left: 70vw;
+    background-color: green;
+}
+
+.yellow {
+    top: 70vh;
+    left: 50vw;
+    background-color: yellow;
+}
+
+.button:hover{
+    cursor: pointer;
+
+}
