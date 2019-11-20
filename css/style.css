@@ -68,9 +68,7 @@ h1 {
     height: 100%;
 }
 
-.game {
-    z-index: 1;
-}
+
 
 .mainContainer {
     width: 100vw;
@@ -78,55 +76,88 @@ h1 {
     background: lightblue;
 }
 
-.button {
+.game {
+    z-index: 1;
+    width: 600px;
+    height: 600px;
     position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    border: 3px solid #000;
-    transition: all .3s ease;
-}
-
-.red {
-    top: 30vh;
-    left: 50vw;
-    background-color: red;
-    transform: translate(-50%, -50%);
-}
-
-.blue {
     top: 50vh;
-    left: 30vw;
-    background-color: blue;
-    transform: translate(-50%, -50%);
-}
-
-.green {
-    top: 50vh;
-    left: 70vw;
-    background-color: green;
-    transform: translate(-50%, -50%);
-}
-
-.yellow {
-    top: 70vh;
     left: 50vw;
-    background-color: yellow;
     transform: translate(-50%, -50%);
-}
-
-.button:hover{
-    cursor: pointer;
-
 }
 
 #play {
     position: absolute;
-    top: 50vh;
-    left: 50vw;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 35px;
     height: 35px;
+    z-index: 12;
     cursor: pointer;
 }
+
+.buttons {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    cursor: pointer;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+}
+
+.green {
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.red {
+    right: 0;
+    top: 0;
+    transition: all 0.5s ease;
+}
+
+.blue {
+    bottom: 0;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.yellow {
+    bottom: 0;
+    right: 0;
+    transition: all 0.5s ease;
+}
+
+.scoring {
+    position: absolute;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    bottom: 50px;
+}
+
+.scoreTouche {
+    height: 100%;
+    text-align: center;
+    width: 180px;
+
+}
+
+.scoreTour {
+    height: 100%;
+    text-align: center;
+    width: 180px;
+}
+
+
+

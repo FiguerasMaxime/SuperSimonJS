@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Super Simon</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <div class="mainContainer">
@@ -22,7 +24,8 @@
                 <img src="img/remove.svg" alt="quit.svg">
             </div>
             <h2>Règles du jeu</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic voluptatum aliquid dicta quam at recusandae distinctio quisquam cumque.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic voluptatum aliquid dicta quam at recusandae
+                distinctio quisquam cumque.</p>
         </div>
 
         <div class="game">
@@ -30,14 +33,39 @@
             <div id="play">
                 <img src="img/play-button.svg" alt="">
             </div>
-            
-            <div class="button red" id="red"></div>
-            <div class="button blue" id="blue"></div>
-            <div class="button green" id="green"></div>
-            <div class="button yellow" id="yellow"></div>
+
+            <div class="buttons">
+                <div class="button green" id="green">
+                    <img src="img/green.svg" alt="">
+                </div>
+                <div class="button red" id="red">
+                    <img src="img/red.svg" alt="">
+                </div>
+                <div class="button blue" id="blue">
+                    <img src="img/blue.svg" alt="">
+                </div>
+                <div class="button yellow" id="yellow"> 
+                    <img src="img/yellow.svg" alt="">
+                </div>
+            </div>
+
+           
+
+        </div>
+
+        <div class="scoring">
+            <div class="scoreTouche">
+                <h3>Nombres de touches appuyées</h3>
+                <p id="nbTouches">0</p>
+            </div>
+            <div class="scoreTour">
+                <h3>Nombres de tours validés</h3>
+                <p id="nbTours">0</p>
+            </div>
         </div>
     </div>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
