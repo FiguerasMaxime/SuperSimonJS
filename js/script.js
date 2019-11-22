@@ -5,6 +5,9 @@ var infos = document.getElementById("infos");
 var overlay = document.getElementById("overlay");
 var quit = document.getElementById("quit");
 var play = document.getElementById("play");
+const youTurn = document.getElementById("turn");
+var nbColorPerRound = 1; //nombres maximum de couleurs qui défile sur un tour
+var tour = 0;
 
 var arraySuite = []; // suite de couleurs
 var arraySaisi = [];
@@ -14,27 +17,90 @@ const greenDiv = document.getElementById("green");
 const blueDiv = document.getElementById("blue");
 const yellowDiv = document.getElementById("yellow");
 
+var audioDO = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
+var audioRE = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');
+var audioMI = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');
+var audioFA = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');
+
 
 // apparition et disparition du #overlay
-if(infos.addEventListener("click", function() {
+if (infos.addEventListener("click", function () {
     var state = overlay.style.display = "block";
-    console.log('Overlay is' + ' ' + state );
+    console.log('Overlay is' + ' ' + state);
 }));
 
 else {
-    if(quit.addEventListener("click", function() {
+    if (quit.addEventListener("click", function () {
         var state = overlay.style.display = "none";
         console.log('Overlay is' + ' ' + state);
     }));
 };
 
 
+//ANIME JS ANIMATION 
+
+function animeSoundDO() {
+    anime({
+        targets: '.soundDO',
+        duration: 500,
+        translateY: -100,
+        opacity: 1,
+        easing: 'easeInOutQuad',
+        direction: 'alternate',
+    });
+    audioDO.play();
+}
+
+function animeSoundRE() {
+    anime({
+        targets: '.soundRE',
+        duration: 500,
+        translateY: -100,
+        opacity: 1,
+        easing: 'easeInOutQuad',
+        direction: 'alternate',
+    });
+    audioRE.play();
+}
+
+function animeSoundMI() {
+    anime({
+        targets: '.soundMI',
+        duration: 500,
+        translateY: -100,
+        opacity: 1,
+        easing: 'easeInOutQuad',
+        direction: 'alternate',
+    });
+    audioMI.play();
+}
+
+function animeSoundFA() {
+    anime({
+        targets: '.soundFA',
+        duration: 500,
+        translateY: -100,
+        opacity: 1,
+        easing: 'easeInOutQuad',
+        direction: 'alternate',
+    });
+    audioFA.play();
+}
+
+function reset() {
+    arraySuite = [];
+    arraySaisi = [];
+    nbColorPerRound++;
+    console.log(arraySaisi);
+    console.log(arraySuite);
+    console.log(nbColorPerRound);
+}
+
 function Start() {
     var n = 0; //nombres de touches appuyés qui vont servir à l'incrémentation
-    var nbColorPerRound = 5; //nombres maximum de couleurs qui défile sur un tour
 
     function ColorRandom() {
-        while(n < nbColorPerRound) {
+        while (n < nbColorPerRound) {
             n++; //passe au prochain tirage
             var arrayColors = ["red", "green", "blue", "yellow"]; // toutes les couleurs super simon
             var colorChoosen = arrayColors[Math.floor(Math.random() * arrayColors.length)]; // PAS OUBLIE PARCE = CEST DE LA CHIASSE, on récupère l'entier avec floor dans le tableau colors avec *
@@ -68,7 +134,7 @@ function Start() {
         blue.style.transform = 'scale(0.8)'; //mettre cela car sinon la div n'a plus de couleur si elle a été tiré au sort
         blue.style.opacity = "0.6";
     };
-    
+
     function yellowColor() {
         setTimeout(() => {
             yellow.style.transform = 'scale(1)';
@@ -78,32 +144,38 @@ function Start() {
         yellow.style.opacity = "0.6";
     };
 
+
+
     function Round() {
         console.log("Choix des couleurs")
         for (let i = 0; i < nbColorPerRound; i++) { // fait autant de boucles que de nombres de couleurs par tour
             setTimeout(() => {
-                switch(arraySuite[i]){ // la couleur choisie fait partie d'une seule case, ensuite elle lui change la couleur avec la fonction en question
+                switch (arraySuite[i]) { // la couleur choisie fait partie d'une seule case, ensuite elle lui change la couleur avec la fonction en question
                     case 'red':
-                        redColor(); 
+                        redColor();
                         console.log("red");
+                        animeSoundRE();
                         break;
                     case 'green':
                         greenColor();
                         console.log("green");
+                        animeSoundDO();
                         break;
                     case 'blue':
                         blueColor();
                         console.log("blue");
+                        animeSoundMI();
                         break;
                     case 'yellow':
                         yellowColor();
                         console.log("yellow");
+                        animeSoundFA();
                         break;
-                    default :
+                    default:
                         console.log("erreur");
                         break;
                 }
-            },1000 * i)
+            }, 1000 * i)
         }
     };
 
@@ -111,31 +183,33 @@ function Start() {
     ColorRandom();
     SelectColor();
 
-    setTimeout(function() { // Permet de finir le tour
+    function yourTurn() {
+        youTurn.style.display = "block";
+    }
+
+    setTimeout(function () { // Permet de finir le tour
         console.log("A VOUS");
+        yourTurn();
     }, 1000 * nbColorPerRound);
 
 };
 
-play.addEventListener("click", function() {
+play.addEventListener("click", function () {
     Start(); // lancement du jeu lorsqu'on appuie sur le #play
 });
 
 
 var i = 0;
 
-function increase()
-{
+function increase() {
     i++;
-    document.getElementById('nbTouches').innerHTML= +i;
+    document.getElementById('nbTouches').innerHTML = +i;
 }
 
 
 function SelectColor() { //choix de la couleur suite à la touche cliquée
 
-    nbTouches = 0;
-
-    redDiv.addEventListener("click", function() {
+    redDiv.addEventListener("click", function () {
         console.log("redDiv");
         setTimeout(() => {
             red.style.transform = 'scale(1)';
@@ -147,9 +221,10 @@ function SelectColor() { //choix de la couleur suite à la touche cliquée
         arraySaisi.push("red");
         console.log(arraySaisi);
         ColorConfirmed();
+        animeSoundRE();
     });
 
-    greenDiv.addEventListener("click", function() {
+    greenDiv.addEventListener("click", function () {
         console.log("greenDiv");
         setTimeout(() => {
             green.style.transform = 'scale(1)';
@@ -161,9 +236,10 @@ function SelectColor() { //choix de la couleur suite à la touche cliquée
         arraySaisi.push("green");
         console.log(arraySaisi);
         ColorConfirmed();
+        animeSoundDO();
     });
 
-    blueDiv.addEventListener("click", function() {
+    blueDiv.addEventListener("click", function () {
         console.log("blueDiv");
         setTimeout(() => {
             blue.style.transform = 'scale(1)';
@@ -175,9 +251,10 @@ function SelectColor() { //choix de la couleur suite à la touche cliquée
         arraySaisi.push("blue");
         console.log(arraySaisi);
         ColorConfirmed();
+        animeSoundMI();
     });
 
-    yellowDiv.addEventListener("click", function() {
+    yellowDiv.addEventListener("click", function () {
         console.log("yellowDiv");
         setTimeout(() => {
             yellow.style.transform = 'scale(1)';
@@ -189,14 +266,28 @@ function SelectColor() { //choix de la couleur suite à la touche cliquée
         arraySaisi.push("yellow");
         console.log(arraySaisi);
         ColorConfirmed();
+        animeSoundFA();
     });
 
     function ColorConfirmed() {
-        if(arraySaisi[0] === arraySuite[0]) {
-            console.log("Bonne couleur");
-        }
-        else {
-            console.log("Mauvaise couleur");
+        for (let i = 0; i < arraySaisi.length; i++) {
+            if (arraySaisi[i] === arraySuite[i]) {
+                console.log('YES');
+                console.log(i);
+                if (arraySaisi.length == arraySuite.length && i == nbColorPerRound - 1) {
+                    console.log("bonne Combinaison");
+                    tour++;
+                    document.getElementById('nbTours').innerHTML = tour;
+                    youTurn.style.display = "none";
+                    reset();
+                }
+            }
+            else {
+                console.log('NO');
+                alert("perdu");
+            }
+
+            // arraySaisi.length === arraySuite.length ? console.log('bonne combinaison') : console.log('NO');
         }
     }
 

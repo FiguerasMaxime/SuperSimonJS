@@ -113,6 +113,11 @@ h1 {
     position: absolute;
 }
 
+.button p {
+    display: block;
+    text-align: center;
+}
+
 .green {
     top: 0;
     left: 0;
@@ -158,6 +163,15 @@ h1 {
     text-align: center;
     width: 180px;
 }
+
+#turn {
+    display: none;
+}
+
+.soundDO, .soundRE, .soundMI, .soundFA {
+    opacity: 0;
+}
+
 
 
 
