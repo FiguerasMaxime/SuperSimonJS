@@ -24,31 +24,38 @@
                 <img src="img/remove.svg" alt="quit.svg">
             </div>
             <h2>Règles du jeu</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic voluptatum aliquid dicta quam at recusandae
-                distinctio quisquam cumque.</p>
+            <p>Les règles du jeu sont simples ! <br> Vous devez reproduire une suite qui est effectué aléatoirement par
+                le jeu. Si vous reproduisez la bonne suite de couleurs par le jeu vous passez au niveau suivant !</p>
         </div>
 
         <div class="game">
 
-            <div id="play">
-                <img src="img/play-button.svg" alt="">
+            <div class="actions">
+                <div id="play">
+                    <img src="img/play-button.svg" alt="img">
+                </div>
+                <div id="restart">
+                    <a href="javascript:window.location.reload()">
+                        <img src="img/replay.svg" alt="img">
+                    </a>
+                </div>
             </div>
 
             <div class="buttons">
                 <div class="button green" id="green">
-                    <img src="img/green.svg" alt="">
+                    <img src="img/green.svg" alt="img">
                     <p class="soundDO">DO</p>
                 </div>
                 <div class="button red" id="red">
-                    <img src="img/red.svg" alt="">
+                    <img src="img/red.svg" alt="img">
                     <p class="soundRE">RE</p>
                 </div>
                 <div class="button blue" id="blue">
-                    <img src="img/blue.svg" alt="">
+                    <img src="img/blue.svg" alt="img">
                     <p class="soundMI">MI</p>
                 </div>
-                <div class="button yellow" id="yellow"> 
-                    <img src="img/yellow.svg" alt="">
+                <div class="button yellow" id="yellow">
+                    <img src="img/yellow.svg" alt="img">
                     <p class="soundFA">FA</p>
                 </div>
             </div>
@@ -69,6 +76,19 @@
         <div id="turn">
             <h2>A VOUS DE JOUER !</h2>
         </div>
+
+        <div id="gameOver">
+                <h2>Game Over</h2>
+                <p>Fallait travailler sa mémoire à l'école...</p>
+        
+                <div id="restartGameOver">
+                    <div class="logoOver">
+                        <a href="javascript:window.location.reload()">
+                            <img src="img/replay.svg" alt="img">
+                        </a>
+                    </div>
+                </div>
+            </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script> <!-- ANIME JS-->

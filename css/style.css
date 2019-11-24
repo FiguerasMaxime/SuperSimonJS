@@ -50,6 +50,7 @@ h1 {
 
 #overlay p {
     padding: 50px;
+    line-height: 25px;
 }
 
 .quit {
@@ -86,15 +87,32 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-#play {
+.actions {
     position: absolute;
     top: 50%;
     left: 50%;
+    display: flex;
+    justify-content: space-around;
     transform: translate(-50%, -50%);
-    width: 35px;
+    width: 100px;
     height: 35px;
     z-index: 12;
+}
+
+#play {
+    width: 35px;
+    height: 35px;
     cursor: pointer;
+}
+
+#restart {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+#restart img {
+    width: 100%;
 }
 
 .buttons {
@@ -149,6 +167,7 @@ h1 {
     display: flex;
     justify-content: center;
     bottom: 50px;
+    z-index: 40;
 }
 
 .scoreTouche {
@@ -170,7 +189,52 @@ h1 {
 
 .soundDO, .soundRE, .soundMI, .soundFA {
     opacity: 0;
+    display: block;
 }
+
+#gameOver {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: lightblue;
+    z-index: 20;
+    display: none;
+}
+
+#gameOver h2 {
+    color: red;
+    display: block;
+    text-align: center;
+    margin-top: 25vh;
+    font-size: 3rem;
+}
+
+#gameOver p {
+    color: chocolate;
+    display: block;
+    text-align: center;
+}
+
+#restartGameOver {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoOver {
+    margin-top: 25vh;
+}
+
+#restartGameOver img {
+    width: 10vh;
+    cursor: pointer;
+
+}
+
+
 
 
 
